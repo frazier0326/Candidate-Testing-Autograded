@@ -49,7 +49,7 @@ function gradeQuiz(candidateAnswers) {
   console.log("Incorrect.");
 }*/
 for (i=0; i<candidateAnswers.length; i++) {
-console.log(`Your answer: ${candidateAnswers[i]}. \nCorrect Answer: ${correctAnswers[i]}.\n`);
+console.log(`Your answer: ${candidateAnswers[i]}. Correct Answer: ${correctAnswers[i]}.`);
 }
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
