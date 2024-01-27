@@ -35,10 +35,12 @@ function askForName() {
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   const input = require('readline-sync');
-  for (i=0; i<questions.length; i++) {}
+  for (let i=0; i<questions.length; i++) {
   candidateAnswers.push(input.question(questions[i]));
-
+  console.log(`Your answer: ${candidateAnswers[i]}. Correct Answer: ${correctAnswers[i]}.`);
 }
+}
+
 
 function gradeQuiz(candidateAnswers) {
 
@@ -48,12 +50,24 @@ function gradeQuiz(candidateAnswers) {
 }else {
   console.log("Incorrect.");
 }*/
-for (i=0; i<candidateAnswers.length; i++) {
-console.log(`Your answer: ${candidateAnswers[i]}. Correct Answer: ${correctAnswers[i]}.`);
+// for (i=0; i<candidateAnswers.length; i++) {
+// console.log(`Your answer: ${candidateAnswers[i]}. Correct Answer: ${correctAnswers[i]}.`);
+// }
+
+let scoreTotal = 0;
+for (let i=0; i < correctAnswers.length; i++) {
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase())
+  scoreTotal++;
 }
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
+//(Number of Correct Answers) / (Number of Quiz Questions) * 100
+  let grade = (scoreTotal) / (questions.length) * 100;  //TODO 3.2 use this variable to calculate the candidates score.
+  let candidateScore = '';
+  if (grade >= 80) {
+    candidateScore = "Passed"
+  }else {
+    candidateScore = "Failed"
+  }
+  console.log(`Grade: ${grade}% (${scoreTotal} of ${questions.length} correct)\n Status: ${candidateScore}`)
   return grade;
 }
 
