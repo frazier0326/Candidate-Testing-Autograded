@@ -37,7 +37,6 @@ function askQuestion() {
   const input = require('readline-sync');
   for (let i=0; i<questions.length; i++) {
   candidateAnswers.push(input.question(questions[i]));
-  console.log(`Your answer: ${candidateAnswers[i]}. Correct Answer: ${correctAnswers[i]}.`);
 }
 }
 
@@ -56,6 +55,8 @@ function gradeQuiz(candidateAnswers) {
 
 let scoreTotal = 0;
 for (let i=0; i < correctAnswers.length; i++) {
+  console.log(`${questions[i]}`)
+  console.log(`Your answer: ${candidateAnswers[i]}.\n Correct Answer: ${correctAnswers[i]}.`);
   if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase())
   scoreTotal++;
 }
